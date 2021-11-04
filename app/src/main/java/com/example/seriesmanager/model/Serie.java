@@ -1,16 +1,14 @@
 package com.example.seriesmanager.model;
 
-import java.util.Date;
-import java.util.logging.Level;
 
 public class Serie {
     private String nome; //chave primaria
-    private Date anoLancamento;
+    private int anoLancamento;
     private String emissora;
     private String genero;
 
 
-    public Serie(String nome, Date anoLancamento, String emissora, String genero) {
+    public Serie(String nome, int anoLancamento, String emissora, String genero) {
         this.nome = nome;
         this.anoLancamento = anoLancamento;
         this.emissora = emissora;
@@ -18,6 +16,16 @@ public class Serie {
     }
 
 
+    public Serie() {
+    }
+
+    public int getAnoLancamento() {
+        return anoLancamento;
+    }
+
+    public void setAnoLancamento(int anoLancamento) {
+        this.anoLancamento = anoLancamento;
+    }
 
     public String getNome() {
         return nome;
@@ -27,13 +35,6 @@ public class Serie {
         this.nome = nome;
     }
 
-    public Date getAnoLancamento() {
-        return anoLancamento;
-    }
-
-    public void setAnoLancamento(Date anoLancamento) {
-        this.anoLancamento = anoLancamento;
-    }
 
     public String getEmissora() {
         return emissora;

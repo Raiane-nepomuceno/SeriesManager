@@ -9,6 +9,7 @@
     app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="8dp"
     xmlns:tools="http://schemas.android.com/tools">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

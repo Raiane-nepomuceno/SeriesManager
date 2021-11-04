@@ -13,6 +13,17 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:elevation="4dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <Button
+        android:id="@+id/btnAddSerie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="1dp"
+        android:padding="30dp"
+        android:text="Adicionar Série"
+        android:onClick="adicionarSerie"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_series"
         android:scrollbars="vertical"

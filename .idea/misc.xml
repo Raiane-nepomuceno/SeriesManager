@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/form_edita_serie.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/form_serie.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_serie.xml" value="0.33" />
         <entry key="app/src/main/res/layout/serie_activity_main.xml" value="0.10733695652173914" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19375" />

@@ -10,13 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.seriesmanager.R;
+import com.example.seriesmanager.dao.SerieDAO;
 import com.example.seriesmanager.model.Serie;
 
 import java.util.List;
 
 public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.ListaSeriesViewHolder> {
     private List<Serie> series;
-
     public ListaSeriesAdapter(List<Serie> series) {
         this.series = series;
     }
@@ -33,6 +33,7 @@ public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.
     public void onBindViewHolder(@NonNull @androidx.annotation.NonNull ListaSeriesViewHolder holder, int position) {
         //lista de filmes
        // holder.bind(series.get(position));
+
         holder.textTituloSerie.setText(series.get(position).getNome());
     }
 

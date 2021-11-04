@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.seriesmanager.model.Serie;
 
+import java.util.List;
+
 
 public class SerieDAO extends SQLiteOpenHelper {
 
@@ -16,7 +18,7 @@ public class SerieDAO extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create Table Series(nome TEXT primary key, anoLancamento DATE,emissora TEXT, genero TEXT)");
+        sqLiteDatabase.execSQL("create Table Series(nome TEXT primary key, anoLancamento int,emissora TEXT, genero TEXT)");
 
     }
     @Override
@@ -28,7 +30,7 @@ public class SerieDAO extends SQLiteOpenHelper {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("nome",serie.getNome());
-        contentValues.put("anoLancamento", String.valueOf(serie.getAnoLancamento()));
+        contentValues.put("anoLancamento", serie.getAnoLancamento());
         contentValues.put("emissora",serie.getEmissora());
         contentValues.put("genero",serie.getGenero());
 
@@ -44,7 +46,7 @@ public class SerieDAO extends SQLiteOpenHelper {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("nome", serie.getNome());
-        contentValues.put("anoLancamento", String.valueOf(serie.getAnoLancamento()));
+        contentValues.put("anoLancamento", serie.getAnoLancamento());
         contentValues.put("emissora", serie.getEmissora());
         contentValues.put("genero", serie.getGenero());
 
@@ -65,10 +67,10 @@ public class SerieDAO extends SQLiteOpenHelper {
     {
         SQLiteDatabase DB = this.getWritableDatabase();
 
-        Cursor cursor = DB.rawQuery("Select * from Series s inner join where nome = ?", new String[]{nome});
+        Cursor cursor = DB.rawQuery("Select * from Series where nome = ?", new String[]{nome});
         if(cursor.getCount() > 0)
         {
-            long result = DB.delete("Series","telefone=?",new String[] {nome});
+            long result = DB.delete("Series","nome=?",new String[] {nome});
             if(result == -1)
             {
                 return false;
@@ -83,7 +85,7 @@ public class SerieDAO extends SQLiteOpenHelper {
 
     public Cursor getSeries()
     {
-        SQLiteDatabase DB = this.getWritableDatabase();
+        SQLiteDatabase DB = this.getReadableDatabase();
 
         Cursor cursor = DB.rawQuery("Select * from Series",null);
         return cursor;

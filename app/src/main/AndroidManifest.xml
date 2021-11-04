@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".view.FormAddSerieActivity"
+            android:exported="true"/>
+        <activity
             android:name=".view.FormEditaActivity"
             android:exported="true"/>
         <activity
