@@ -15,9 +15,10 @@ public class Serie {
         this.genero = genero;
     }
 
-
     public Serie() {
+
     }
+
 
     public int getAnoLancamento() {
         return anoLancamento;

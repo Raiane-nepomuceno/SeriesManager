@@ -10,23 +10,55 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Edição da Série" />
-
     <TextView
-        android:id="@+id/textViewNome"
+        android:id="@+id/textViewAntigoNome"
         android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:ems="15"
-        android:text="Nome da Série" />
+        android:text="Nome da Série a ser editada" />
 
     <EditText
-        android:id="@+id/nomeSerie"
+        android:id="@+id/nomeAntigoEt"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginLeft="5dp"
         android:inputType="text" />
+
+    <TextView
+        android:id="@+id/textViewNome"
+        android:layout_width="233dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="15"
+        android:text="Novo Nome da Série" />
+
+    <EditText
+        android:id="@+id/nomeEt"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginLeft="5dp"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/textAnoLancamento"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:ems="35"
+        android:layout_marginLeft="5dp"
+        android:text="Ano de lançamento" />
+
+    <EditText
+        android:id="@+id/lancamentoEt"
+        android:layout_width="394dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:ems="30"
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/textViewEmissora"
@@ -42,27 +74,12 @@
         android:layout_height="wrap_content"
         android:ems="45"
         android:layout_marginLeft="5dp"
-        android:inputType="number" />
-
-    <TextView
-        android:id="@+id/textViewEm"
-        android:layout_width="47dp"
-        android:layout_marginLeft="5dp"
-        android:layout_height="wrap_content"
-        android:ems="55"
-        android:text="Email" />
-
-    <EditText
-        android:id="@+id/emailEt"
-        android:layout_width="396dp"
-        android:layout_height="wrap_content"
-        android:ems="65"
-        android:layout_marginLeft="5dp"
         android:inputType="text" />
+
 
     <TextView
         android:id="@+id/textViewGen"
-        android:layout_width="45dp"
+        android:layout_width="47dp"
         android:layout_height="wrap_content"
         android:ems="50"
         android:layout_marginLeft="5dp"
@@ -75,20 +92,6 @@
         android:ems="50"
         android:layout_marginLeft="5dp"
         android:inputType="text" />
-
-    <TextView
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
-        android:ems="55"
-        android:layout_marginLeft="12dp"
-        android:text="UF"/>
-    <Spinner
-        android:id="@+id/opcoesUf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp">
-
-    </Spinner>
     <Button
         android:id="@+id/btnLimpar"
         android:layout_width="115dp"
@@ -97,15 +100,18 @@
         android:layout_marginTop="5dp"
         android:layout_marginHorizontal="10dp"
         android:text="LIMPAR"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:onClick="limparCampos"/>
 
     <Button
-        android:id="@+id/btnSalvar"
+        android:id="@+id/btnSalvarEdicao"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="-49dp"
         android:text="SALVAR"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:onClick="salvarEdicaoSerie"/>
+
 </LinearLayout>

@@ -12,12 +12,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/image_poster_serie"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="250dp"
             android:scaleType="fitXY" />
 
         <TextView
@@ -31,29 +31,52 @@
             android:textColor="@android:color/black"
             tools:text="Título da série" />
 
-        <Button
-            android:id="@+id/btnEdita"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_titulo_serie"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="1dp"
-            android:padding="30dp"
-            android:text="Editar"
-            android:onClick="editarSerie"/>
 
-        <Button
-            android:id="@+id/btnRemove"
+        <TextView
+            android:id="@+id/text_ano"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_titulo_serie"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="1dp"
-            android:layout_toRightOf="@+id/btnEdita"
+            android:layout_marginTop="2dp"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            tools:text="Ano:" />
+
+        <TextView
+            android:id="@+id/text_ano_serie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_titulo_serie"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="3dp"
+            android:padding="16dp"
+            android:textColor="@android:color/black"
+            tools:text="Ano"/>
+
+        <ImageView
+            android:id="@+id/btnEdita"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/text_titulo_serie"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="-8dp"
+            android:onClick="editarSerie"
             android:padding="30dp"
-            android:text="Excluir"
-            android:onClick="removerSerie" />
+            android:src="@drawable/ic_baseline_edit_24" />
+
+        <ImageView
+            android:id="@+id/image_delete"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/text_titulo_serie"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-10dp"
+            android:layout_toRightOf="@+id/btnEdita"
+            android:onClick="removerSerie"
+            android:src="@drawable/ic_delete" />
+
+
     </RelativeLayout>
 
 

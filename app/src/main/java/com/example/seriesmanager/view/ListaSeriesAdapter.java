@@ -5,21 +5,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.dao.SerieDAO;
 import com.example.seriesmanager.model.Serie;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.ListaSeriesViewHolder> {
     private List<Serie> series;
+
     public ListaSeriesAdapter(List<Serie> series) {
         this.series = series;
     }
+
+
 
     @NonNull
     @androidx.annotation.NonNull
@@ -35,6 +39,9 @@ public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.
        // holder.bind(series.get(position));
 
         holder.textTituloSerie.setText(series.get(position).getNome());
+        holder.textAnoSerie.setText(String.valueOf(series.get(position).getAnoLancamento()));
+        //holder.textAnoSerie.setText(series.get(position).getAnoLancamento());
+
     }
 
     @Override
@@ -43,14 +50,26 @@ public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.
     }
     static class ListaSeriesViewHolder extends RecyclerView.ViewHolder{
         private TextView textTituloSerie;
-       // private ImageView imagePosterSerie;
+        private TextView textAnoSerie;
+
+        // private ImageView imagePosterSerie;
 
         public ListaSeriesViewHolder(View itemView) {
             super(itemView);
+
             textTituloSerie = itemView.findViewById(R.id.text_titulo_serie);
-         //   imagePosterSerie = itemView.findViewById(R.id.image_poster_serie);
+            textAnoSerie = itemView.findViewById(R.id.text_ano_serie);
+
+
+           //imagePosterSerie = itemView.findViewById(R.id.image_poster_serie);
+
             textTituloSerie.setText("Filme de exemplo");
+            textAnoSerie.setText("Ano:");
+
+
         }
+
+
     }
 
 }

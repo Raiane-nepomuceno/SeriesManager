@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.EditText;
 
 import com.example.seriesmanager.model.Serie;
 
@@ -15,6 +16,7 @@ public class SerieDAO extends SQLiteOpenHelper {
     public SerieDAO(Context context) {
         super(context, "SeriesManager.db",null, 1);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -42,7 +44,7 @@ public class SerieDAO extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Boolean updateSerie(Serie serie) {
+    public Boolean updateSerie(Serie serie, String nomeAntigoSerieEt) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("nome", serie.getNome());
@@ -50,9 +52,9 @@ public class SerieDAO extends SQLiteOpenHelper {
         contentValues.put("emissora", serie.getEmissora());
         contentValues.put("genero", serie.getGenero());
 
-        Cursor cursor = DB.rawQuery("Select * from Series where nome = ?", new String[]{serie.getNome()});
+        Cursor cursor = DB.rawQuery("Select * from Series where nome = ?", new String[]{nomeAntigoSerieEt});
         if (cursor.getCount() > 0) {
-            long result = DB.update("Series", contentValues, "nome=?", new String[]{serie.getNome()});
+            long result = DB.update("Series", contentValues, "nome=?", new String[]{nomeAntigoSerieEt});
             if (result == -1) {
                 return false;
             } else {
