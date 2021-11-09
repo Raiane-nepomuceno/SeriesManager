@@ -7,9 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.dao.SerieDAO;
@@ -18,7 +19,7 @@ import com.example.seriesmanager.model.Serie;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SerieActivity extends AppCompatActivity {
+public class SerieActivity extends AppCompatActivity implements ListaSeriesAdapter.ItemSerieClickListener{
     private SerieDAO db;
     private ListaSeriesAdapter mAdapter;
     private TextView textTituloSerie;
@@ -39,6 +40,7 @@ public class SerieActivity extends AppCompatActivity {
         recyclerSeries.setLayoutManager(linearLayoutManager);
         recyclerSeries.setAdapter(new ListaSeriesAdapter(criarSeries()));
 
+
     }
 
     public void openFormEdita()
@@ -50,6 +52,11 @@ public class SerieActivity extends AppCompatActivity {
     public void openAddSerie(){
         Intent intent = new Intent(this,FormAddSerieActivity.class);
         startActivity(intent);
+    }
+    public void adicionarTemporada(View view){
+        Intent intent = new Intent(this,FormTemporadaActivity.class);
+        startActivity(intent);
+
     }
     private List<Serie> criarSeries(){
         db = new SerieDAO(this);
@@ -74,15 +81,19 @@ public class SerieActivity extends AppCompatActivity {
     }
     public void editarSerie(View view) {
         openFormEdita();
-        criarSeries();
-
     }
-
 
     public void removerSerie(View view) {
         Intent intent = new Intent(this, RemocaoActivity.class);
         startActivity(intent);
-        criarSeries();
+
+    }
+
+    @Override
+    public void onItemClicado(Serie serie) {
+        Intent intent = new Intent(this, EpisodioActivity.class);
+        intent.putExtra(EpisodioActivity.EXTRA_SERIE,serie);
+        startActivity(intent);
 
     }
 }

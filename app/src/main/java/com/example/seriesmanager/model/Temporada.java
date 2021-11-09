@@ -4,27 +4,18 @@ package com.example.seriesmanager.model;
 public class Temporada {
     /*Cada
     temporada deve ter um número sequencial, ano de lançamento, e quantidade de episódios.*/
-    private int numeroSequencial;
-    private int anoLancamento;
-    private int quantidadeEpisodios;
-    private String nomeSerie;
-
-
+    private int numeroSequencial,anoLancamento,quantidadeEpisodios;
 
     public Temporada(int numeroSequencial, int anoLancamento, int quantidadeEpisodios, String nomeSerie) {
         this.numeroSequencial = numeroSequencial;
         this.anoLancamento = anoLancamento;
         this.quantidadeEpisodios = quantidadeEpisodios;
-        this.nomeSerie = nomeSerie;
     }
 
-    public String getNomeSerie() {
-        return nomeSerie;
+    public Temporada() {
+
     }
 
-    public void setNomeSerie(String nomeSerie) {
-        this.nomeSerie = nomeSerie;
-    }
     public int getNumeroSequencial() {
         return numeroSequencial;
     }

@@ -12,28 +12,29 @@ import com.example.seriesmanager.model.Temporada;
 public class TemporadaDAO extends SQLiteOpenHelper {
 
     public TemporadaDAO(Context context) {
-        super(context, "SeriesManager.db", null, 1);
+        super(context, "SeriesManager.db",null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create Table Temporadas(numeroSequencialTemp int primary key, anoLancamento int,quantidadeEpisodios int, foreign key (nomeSerie) references Series(nome))");
+        sqLiteDatabase.execSQL("create table if not exists Temporadas(numeroSequencialTemp integer primary key, anoLancamento int,quantidadeEpisodios int, foreign key (nomeSerie) references Series(nome))");
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("drop Table if exists Temporadas");
+        sqLiteDatabase.execSQL("drop table if exists Temporadas");
 
     }
-    public Boolean insertTemporadas(Temporada temporada)
+    public Boolean insertTemporadas(Temporada temporada, String s)
     {
-        SQLiteDatabase DB = this.getWritableDatabase();
+        SQLiteDatabase DB = getWritableDatabase();
+
         ContentValues contentValues = new ContentValues();
         contentValues.put("numeroSequencial",temporada.getNumeroSequencial());
         contentValues.put("anoLancamento", temporada.getAnoLancamento());
         contentValues.put("quantidadeEpisodios",temporada.getQuantidadeEpisodios());
-        contentValues.put("nomeSerie",temporada.getNomeSerie());
+        contentValues.put("nomeSerie",s);
 
         long result = DB.insert("Temporadas",null,contentValues);
         if(result == -1)

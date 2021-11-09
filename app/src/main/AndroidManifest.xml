@@ -10,14 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".view.FormTemporadaActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.RemocaoActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".view.FormAddSerieActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".view.FormEditaActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".view.SerieActivity"
             android:exported="true">

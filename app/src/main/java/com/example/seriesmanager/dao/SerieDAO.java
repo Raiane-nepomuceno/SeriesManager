@@ -14,7 +14,7 @@ import java.util.List;
 public class SerieDAO extends SQLiteOpenHelper {
 
     public SerieDAO(Context context) {
-        super(context, "SeriesManager.db",null, 1);
+        super(context, "SeriesManager.db",null, 2);
     }
 
 

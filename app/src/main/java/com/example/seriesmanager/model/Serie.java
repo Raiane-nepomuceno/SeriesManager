@@ -1,7 +1,9 @@
 package com.example.seriesmanager.model;
 
 
-public class Serie {
+import java.io.Serializable;
+
+public class Serie implements Serializable {
     private String nome; //chave primaria
     private int anoLancamento;
     private String emissora;

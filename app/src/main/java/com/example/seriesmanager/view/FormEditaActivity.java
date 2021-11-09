@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.dao.SerieDAO;
 import com.example.seriesmanager.model.Serie;

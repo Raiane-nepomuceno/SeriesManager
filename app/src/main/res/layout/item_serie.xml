@@ -28,8 +28,7 @@
             android:layout_centerHorizontal="true"
             android:padding="16dp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
-            tools:text="Título da série" />
+            android:textColor="@android:color/black"/>
 
 
         <TextView
@@ -37,30 +36,91 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_titulo_serie"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="1dp"
             android:padding="16dp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
-            tools:text="Ano:" />
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:id="@+id/text_ano_serie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_titulo_serie"
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="1dp"
             android:padding="16dp"
-            android:textColor="@android:color/black"
-            tools:text="Ano"/>
+            android:textColor="@android:color/black" />
+
+
+        <TextView
+            android:id="@+id/text_genero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_titulo_serie"
+            android:layout_marginTop="24dp"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/text_genero_serie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_titulo_serie"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="23dp"
+            android:padding="16dp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/text_emissora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_titulo_serie"
+            android:layout_marginTop="43dp"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/text_emissora_serie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_titulo_serie"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="41dp"
+            android:padding="16dp"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/btnlistarEpisodio"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/text_titulo_serie"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="10dp"
+            android:onClick="listarEpisodio"
+            android:padding="30dp"
+            android:src="@drawable/ic_baseline_listarepisodio_24" />
+
+        <ImageView
+            android:id="@+id/btnAddEpisodio"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/text_titulo_serie"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="7dp"
+            android:onClick="adicionarTemporada"
+            android:padding="30dp"
+            android:src="@drawable/ic_baseline_add_episodio_24" />
 
         <ImageView
             android:id="@+id/btnEdita"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_below="@+id/text_titulo_serie"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="-8dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="11dp"
             android:onClick="editarSerie"
             android:padding="30dp"
             android:src="@drawable/ic_baseline_edit_24" />
@@ -68,10 +128,10 @@
         <ImageView
             android:id="@+id/image_delete"
             android:layout_width="50dp"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/text_titulo_serie"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="-10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="38dp"
             android:layout_toRightOf="@+id/btnEdita"
             android:onClick="removerSerie"
             android:src="@drawable/ic_delete" />

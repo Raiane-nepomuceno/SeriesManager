@@ -9,7 +9,7 @@ import com.example.seriesmanager.model.Episodio;
 
 public class EpisodioDAO extends SQLiteOpenHelper{
     public EpisodioDAO(Context context) {
-        super(context, "SeriesManager.db",null, 1);
+        super(context, "SeriesManager.db",null, 2);
     }
 
 
