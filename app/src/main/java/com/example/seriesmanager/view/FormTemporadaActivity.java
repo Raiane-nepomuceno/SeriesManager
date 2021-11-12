@@ -3,15 +3,15 @@ package com.example.seriesmanager.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.seriesmanager.R;
-import com.example.seriesmanager.dao.TemporadaDAO;
-import com.example.seriesmanager.model.Serie;
+import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.model.Temporada;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.List;
 public class FormTemporadaActivity extends AppCompatActivity {
     private EditText nomeSerie, anoLancamento, quantidadeEpisodiosTemp, numeroTempEt;
     private Button btnlimpar;
-    private TemporadaDAO db;
+    private Banco db;
     private List<Temporada> listaTemp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class FormTemporadaActivity extends AppCompatActivity {
 
     }
     public void salvarTemporada(View view) {
-            db = new TemporadaDAO(this);
+            db = new Banco(this);
             try {
                 Temporada temporada = new Temporada();
 
@@ -64,7 +64,7 @@ public class FormTemporadaActivity extends AppCompatActivity {
 
                 if (resultado == true) {
                     Toast.makeText(FormTemporadaActivity.this, "Temporada adicionada com sucesso! :)", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, SerieActivity.class);
+                    Intent intent = new Intent(this, EpisodioActivity.class);
                     startActivity(intent);
 
                     db.close();

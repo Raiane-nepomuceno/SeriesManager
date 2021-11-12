@@ -2,21 +2,22 @@ package com.example.seriesmanager.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.seriesmanager.R;
-import com.example.seriesmanager.dao.SerieDAO;
+import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.model.Serie;
 
 import java.util.List;
 
 public class FormEditaActivity extends AppCompatActivity {
     private EditText nomeSerieEt,nomeAntigoSerieEt,lancamentoEt,emissoraEt,generoEt;
-    private SerieDAO db;
+    private Banco db;
     private List<Serie> listaSeries;
 
 
@@ -30,12 +31,19 @@ public class FormEditaActivity extends AppCompatActivity {
         emissoraEt = findViewById(R.id.emissoraEt);
         generoEt = findViewById(R.id.generoEt);
         nomeAntigoSerieEt = findViewById(R.id.nomeAntigoEt);
+
+        Bundle nomeSerie = getIntent().getExtras();
+        if(nomeSerie!=null){
+            String serieClicada = nomeSerie.getString("serieClicada");
+            nomeAntigoSerieEt.setText(serieClicada);
+
+        }
     }
     public void salvarEdicaoSerie(View view) {
 
         if (nomeSerieEt != null && emissoraEt != null && generoEt != null && lancamentoEt != null && lancamentoEt != null && nomeAntigoSerieEt!=null) {
             Serie serie = new Serie();
-            db = new SerieDAO(this);
+            db = new Banco(this);
             serie.setNome(nomeSerieEt.getText().toString());
             serie.setEmissora(emissoraEt.getText().toString());
             serie.setGenero(generoEt.getText().toString());
@@ -61,13 +69,10 @@ public class FormEditaActivity extends AppCompatActivity {
 
             }
 
-
-
         }else{
             Toast.makeText(FormEditaActivity.this, "Os campos estão inválidos. Por favor preencha novamente!", Toast.LENGTH_LONG).show();
             db.close();
         }
-
 
         }
         public void limparCampos(View view){
@@ -77,6 +82,8 @@ public class FormEditaActivity extends AppCompatActivity {
                 lancamentoEt.getText().clear();
                 emissoraEt.getText().clear();
                 generoEt.getText().clear();
+                nomeAntigoSerieEt.getText().clear();
+
             }
         }
 
