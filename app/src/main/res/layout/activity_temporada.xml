@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
+        <TextView
             android:id="@+id/text_num_seq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,6 +24,7 @@
             android:layout_marginTop="1dp"
             android:padding="16dp"
             android:textColor="@android:color/black" />
+
         <TextView
             android:id="@+id/num_seq"
             android:layout_width="wrap_content"
@@ -32,25 +33,46 @@
             android:layout_marginTop="1dp"
             android:padding="16dp"
             android:textColor="@android:color/black" />
+
         <TextView
             android:id="@+id/text_quant_episodio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/text_num_seq"
+            android:layout_centerHorizontal="true"
             android:padding="16dp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/quant_episodio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_num_seq"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="1dp"
+            android:padding="16dp"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/text_ano"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_num_seq"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginLeft="105dp"
+            android:layout_marginTop="30dp"
             android:padding="16dp"
             android:textAlignment="center"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/text_anoEt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_num_seq"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="30dp"
+            android:padding="16dp"
             android:textColor="@android:color/black" />
 
         <TextView
@@ -61,24 +83,25 @@
             android:padding="16dp"
             android:textAlignment="center"
             android:textColor="@android:color/black" />
+
         <ImageView
-            android:id="@+id/btnAddEpisodio"
+            android:id="@+id/btnAddTemp"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_below="@+id/text_quant_episodios"
             android:layout_marginLeft="200dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="30dp"
             android:onClick="adicionarTemporada"
             android:padding="30dp"
             android:src="@drawable/ic_add" />
 
         <ImageView
-            android:id="@+id/btnEdita"
+            android:id="@+id/image_edita"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="11dp"
             android:layout_below="@+id/text_quant_episodios"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="30dp"
             android:onClick="editarTemporada"
             android:padding="30dp"
             android:src="@drawable/ic_edit" />
@@ -88,8 +111,8 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="38dp"
-            android:layout_toRightOf="@+id/btnEdita"
+            android:layout_marginTop="60dp"
+            android:layout_toRightOf="@+id/image_edita"
             android:layout_below="@+id/text_quant_episodios"
             android:onClick="removerTemporada"
             android:src="@drawable/ic_remove" />

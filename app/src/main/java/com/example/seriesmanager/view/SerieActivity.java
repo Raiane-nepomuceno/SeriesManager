@@ -40,8 +40,6 @@ public class SerieActivity extends AppCompatActivity implements ListaSeriesAdapt
         RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerSeries.setLayoutManager(linearLayoutManager);
         recyclerSeries.setAdapter(new ListaSeriesAdapter(criarSeries()));
-
-
     }
 
     public void openFormEdita()
@@ -71,7 +69,11 @@ public class SerieActivity extends AppCompatActivity implements ListaSeriesAdapt
         db.close();
         return listaSeries;
     }
+    public void adicionarTemporada(View view){
+        Intent intent = new Intent(this, FormTemporadaActivity.class);
+        startActivity(intent);
 
+    }
     public void adicionarSerie(View view){
         openAddSerie();
         criarSeries();

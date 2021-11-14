@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.seriesmanager">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".view.FormAddEpisodioActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.TemporadaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.FormEditaTemporadaActivity"
             android:exported="true" />
         <activity
             android:name=".view.FormTemporadaActivity"

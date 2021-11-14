@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".view.FormAddSerieActivity">
+    tools:context=".view.FormEditaTemporadaActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Cadastro de Temporadas" />
+        android:text="Edição de Temporadas" />
 
     <TextView
         android:id="@+id/textViewNome"
@@ -19,9 +19,9 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:ems="15"
-        android:text="Nome da Série" />
+        android:text="Nome da Série:" />
 
-    <EditText
+    <TextView
         android:id="@+id/nomeEt"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         android:ems="50"
         android:text="Número da temporada:" />
 
-    <EditText
+    <TextView
         android:id="@+id/numeroTempEt"
         android:layout_width="396dp"
         android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
         android:inputType="number"/>
 
     <Button
-        android:id="@+id/btnLimparTemp"
+        android:id="@+id/btnLimparCampoTemp"
         android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
@@ -98,5 +98,5 @@
         android:layout_marginTop="-49dp"
         android:text="SALVAR"
         android:textAllCaps="false"
-        android:onClick="salvarTemporada"/>
+        android:onClick="editarTemporada"/>
 </LinearLayout>

@@ -21,13 +21,28 @@
         android:text="Numero da Temporada" />
 
     <EditText
-        android:id="@+id/nomeNumTempEt"
+        android:id="@+id/numTempEt"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:ems="10"
         android:inputType="number" />
+    <TextView
+        android:id="@+id/textViewNumSerie"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="15"
+        android:text="Nome da Série:" />
 
+    <EditText
+        android:id="@+id/nomeSerieEt"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:ems="10"
+        android:inputType="text" />
     <Button
         android:id="@+id/btnRemoverTemp"
         android:layout_width="120dp"

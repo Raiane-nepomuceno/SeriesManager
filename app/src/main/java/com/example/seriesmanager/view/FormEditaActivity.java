@@ -52,8 +52,8 @@ public class FormEditaActivity extends AppCompatActivity {
                 Boolean resultado = db.updateSerie(serie,nomeAntigoSerieEt.getText().toString());
                 if(resultado == true)
                 {
-                    Toast.makeText(FormEditaActivity.this, "Série editada com sucesso! :)", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, SerieActivity.class);
+                    Toast.makeText(FormEditaActivity.this, "Temporada editada com sucesso! :)", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, TemporadaActivity.class);
                     startActivity(intent);
 
                     db.close();

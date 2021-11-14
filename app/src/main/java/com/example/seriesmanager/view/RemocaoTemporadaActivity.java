@@ -14,34 +14,40 @@ import com.example.seriesmanager.dao.Banco;
 
 public class RemocaoTemporadaActivity extends AppCompatActivity {
     private Banco db;
-    private EditText numTempEt;
+    private EditText numTempEt,nomeSerieEt;
     private Button btnRemoverTemp;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirmacao_deletar_temporada);
         btnRemoverTemp = findViewById(R.id.btnRemoverTemp);
-        numTempEt= findViewById(R.id.nomeNumTempEt);
+        numTempEt= findViewById(R.id.numTempEt);
+        nomeSerieEt = findViewById(R.id.nomeSerieEt);
+
         Bundle numTemp = getIntent().getExtras();
+
         if(numTemp!=null){
            int temporadaClicada = numTemp.getInt("temporadaClicada");
+            String nomeSerie = numTemp.getString("serieClicada");
             numTempEt.setText(String.valueOf(temporadaClicada));
-
+            nomeSerieEt.setText(nomeSerie);
         }
+
 
     }
             public void removerTemporada(View view) {
 
                 db = new Banco(this);
-                int num = Integer.parseInt(numTempEt.getText().toString());
 
-                Boolean resultado = db.deleteTemporadas(num);
+                Boolean resultado = db.deleteTemporadas(numTempEt.getText().toString(),nomeSerieEt.getText().toString());
                 if(resultado == true)
                 {
                     Toast.makeText(RemocaoTemporadaActivity.this, "Temporada excluída com sucesso! :)", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, TemporadaActivity.class);
+
+                    Intent intent = new Intent(view.getContext(),TemporadaActivity.class);
+                    intent.putExtra("temporadaClicada",numTempEt.getText().toString());
+                    intent.putExtra("serieClicada",nomeSerieEt.getText().toString());
                     startActivity(intent);
 
                 }
@@ -50,7 +56,5 @@ public class RemocaoTemporadaActivity extends AppCompatActivity {
 
                 }
                 db.close();
-
-
             }
         }

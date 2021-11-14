@@ -32,10 +32,16 @@ public class FormTemporadaActivity extends AppCompatActivity {
         anoLancamento = findViewById(R.id.lancamentoEt);
         quantidadeEpisodiosTemp = findViewById(R.id.quantidadeEpisodiosTempEt);
         numeroTempEt = findViewById(R.id.numeroTempEt);
-        btnlimpar = findViewById(R.id.btnLimpar);
+        btnlimpar = findViewById(R.id.btnLimparTemp);
+        Bundle nomeSerieB = getIntent().getExtras();
+        if(nomeSerieB!=null){
+            String serieClicada = nomeSerieB.getString("serieClicada");
+            nomeSerie.setText(serieClicada);
+
+        }
     }
-    public boolean limpar(View view){
-        if(view.getId() == R.id.btnLimpar){
+    public boolean limparDadosTemp(View view){
+        if(view.getId() == R.id.btnLimparTemp){
             nomeSerie.getText().clear();
             anoLancamento.getText().clear();
             quantidadeEpisodiosTemp.getText().clear();
@@ -52,11 +58,13 @@ public class FormTemporadaActivity extends AppCompatActivity {
     public void salvarTemporada(View view) {
             db = new Banco(this);
             try {
+
                 Temporada temporada = new Temporada();
 
                 temporada.setNumeroSequencial(Integer.parseInt(numeroTempEt.getText().toString()));
                 temporada.setAnoLancamento(Integer.parseInt(anoLancamento.getText().toString()));
                 temporada.setQuantidadeEpisodios(Integer.parseInt(quantidadeEpisodiosTemp.getText().toString()));
+                temporada.setNomeSerie(nomeSerie.getText().toString());
 
                 listaTemp.add(temporada);
 
@@ -64,12 +72,14 @@ public class FormTemporadaActivity extends AppCompatActivity {
 
                 if (resultado == true) {
                     Toast.makeText(FormTemporadaActivity.this, "Temporada adicionada com sucesso! :)", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, EpisodioActivity.class);
-                    startActivity(intent);
+                    Intent intent = new Intent(view.getContext(),TemporadaActivity.class);
+                    intent.putExtra("temporadaClicada",temporada.getNumeroSequencial());
+                    intent.putExtra("serieClicada",nomeSerie.getText().toString());
+                    view.getContext().startActivity(intent);
 
                     db.close();
                 }
-    }catch (Exception e){
+               }catch (Exception e){
                 Toast.makeText(FormTemporadaActivity.this, "Erro :(", Toast.LENGTH_SHORT).show();
 
             }

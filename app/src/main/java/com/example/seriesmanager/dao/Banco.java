@@ -50,24 +50,26 @@ public class Banco extends SQLiteOpenHelper {
             return false;
         }
     }
-    public Boolean insertEpisosios(Episodio episodio)
-    {
+
+    public Boolean updateTemporada(Temporada temporada, String nomeAntigoTempEt, String numTempEt) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("numeroSequencial",episodio.getNumeroSequencial());
-        contentValues.put("nome", episodio.getNome());
-        contentValues.put("tempoDuracao",episodio.getTempoDuracao());
-        contentValues.put("numeroSequencialTemp",episodio.getNumeroSequencialTemp());
+        contentValues.put("anoLancamento", temporada.getAnoLancamento());
+        contentValues.put("quantidadeEpisodios",temporada.getQuantidadeEpisodios());
+        contentValues.put("nomeSerie",temporada.getNomeSerie());
 
-        long result = DB.insert("Episodios",null,contentValues);
-        if(result == -1)
-        {
+        Cursor cursor = DB.rawQuery("Select * from Temporadas where nomeSerie = ? and numeroSequencialTemp=?", new String[]{nomeAntigoTempEt,numTempEt});
+        if (cursor.getCount() > 0) {
+            long result = DB.update("Temporadas", contentValues, "nomeSerie=? and numeroSequencialTemp=?", new String[]{nomeAntigoTempEt,numTempEt});
+            if (result == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
             return false;
-        }else{
-            return true;
         }
     }
-
 
     public Boolean insertSerie(Serie serie)
     {
@@ -123,15 +125,15 @@ public class Banco extends SQLiteOpenHelper {
         }
 
     }
-    public Boolean deleteTemporadas(int numTemp)
+    public Boolean deleteTemporadas(String numTemp, String nomeSerie)
     {
         SQLiteDatabase DB = this.getWritableDatabase();
 
 
-        Cursor cursor = DB.rawQuery("Select * from Temporadas where numeroSequencialTemp= ?" + numTemp,null);
+        Cursor cursor = DB.rawQuery("Select * from Temporadas where numeroSequencialTemp= ? and nomeSerie=?",new String[]{numTemp,nomeSerie});
         if(cursor.getCount() > 0)
         {
-            long result = DB.delete("Temporadas","numeroSequencialTemp=?"+numTemp,null);
+            long result = DB.delete("Temporadas","numeroSequencialTemp=? and nomeSerie=?",new String[]{numTemp,nomeSerie});
             if(result == -1)
             {
                 return false;

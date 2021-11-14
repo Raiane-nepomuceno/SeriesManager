@@ -5,11 +5,21 @@ public class Temporada {
     /*Cada
     temporada deve ter um número sequencial, ano de lançamento, e quantidade de episódios.*/
     private int numeroSequencial,anoLancamento,quantidadeEpisodios;
+    private String nomeSerie;
 
     public Temporada(int numeroSequencial, int anoLancamento, int quantidadeEpisodios, String nomeSerie) {
         this.numeroSequencial = numeroSequencial;
         this.anoLancamento = anoLancamento;
         this.quantidadeEpisodios = quantidadeEpisodios;
+        this.nomeSerie = nomeSerie;
+    }
+
+    public String getNomeSerie() {
+        return nomeSerie;
+    }
+
+    public void setNomeSerie(String nomeSerie) {
+        this.nomeSerie = nomeSerie;
     }
 
     public Temporada() {

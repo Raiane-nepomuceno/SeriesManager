@@ -29,7 +29,6 @@ public class RemocaoActivity extends AppCompatActivity {
         if(nomeSerie!=null){
             String serieClicada = nomeSerie.getString("serieClicada");
             nomeSerieEt.setText(serieClicada);
-
         }
 
     }

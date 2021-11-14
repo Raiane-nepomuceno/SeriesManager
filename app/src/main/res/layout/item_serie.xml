@@ -100,6 +100,17 @@
             android:src="@drawable/ic_edit" />
 
         <ImageView
+            android:id="@+id/btnAddTemporada"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/text_titulo_serie"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="11dp"
+            android:onClick="adicionarTemporada"
+            android:padding="30dp"
+            android:src="@drawable/ic_add" />
+
+        <ImageView
             android:id="@+id/image_delete"
             android:layout_width="50dp"
             android:layout_height="wrap_content"

@@ -37,32 +37,35 @@ public class TemporadaActivity extends AppCompatActivity {
 
         RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerTemporadas.setLayoutManager(linearLayoutManager);
-        recyclerTemporadas.setAdapter(new ListaTemporadasAdapter(carregarEpisodios()));
+
+        recyclerTemporadas.setAdapter(new ListaTemporadasAdapter(carregarTemporadas()));
 
     }
     public void adicionarTemporada(View view){
         Intent intent = new Intent(this,FormTemporadaActivity.class);
         startActivity(intent);
-
     }
     public void removerTemporada(View view){
         Intent intent = new Intent(this,RemocaoTemporadaActivity.class);
         startActivity(intent);
+    }
+    public void editarTemporada(View view){
+        Intent intent = new Intent(this,FormEditaTemporadaActivity.class);
+        startActivity(intent);
 
     }
-    private List<Temporada> carregarEpisodios(){
+    private List<Temporada> carregarTemporadas(){
         Bundle nomeSerie = getIntent().getExtras();
         if(nomeSerie != null){
             String serieClicada = nomeSerie.getString("serieClicada");
             db = new Banco(this);
-
             Cursor cursor = db.getTemporadas(serieClicada);
             while(cursor.moveToNext()) {
                 Temporada temporada = new Temporada();
-
                 temporada.setQuantidadeEpisodios(cursor.getInt(cursor.getColumnIndex("quantidadeEpisodios")));
                 temporada.setNumeroSequencial(cursor.getInt(cursor.getColumnIndex("numeroSequencialTemp")));
-                temporada.setAnoLancamento(cursor.getInt(cursor.getColumnIndex("numeroSequencialTemp")));
+                temporada.setAnoLancamento(cursor.getInt(cursor.getColumnIndex("anoLancamento")));
+                temporada.setNomeSerie(serieClicada);
                 listaTemporadas.add(temporada);
             }
         }
