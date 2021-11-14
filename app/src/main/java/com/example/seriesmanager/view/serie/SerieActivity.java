@@ -1,4 +1,4 @@
-package com.example.seriesmanager.view;
+package com.example.seriesmanager.view.serie;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,6 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.model.Serie;
+import com.example.seriesmanager.view.adapter.ListaSeriesAdapter;
+import com.example.seriesmanager.view.episodio.EpisodioActivity;
+import com.example.seriesmanager.view.temporada.FormTemporadaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +52,7 @@ public class SerieActivity extends AppCompatActivity implements ListaSeriesAdapt
 
     }
     public void openAddSerie(){
-        Intent intent = new Intent(this,FormAddSerieActivity.class);
+        Intent intent = new Intent(this, FormAddSerieActivity.class);
         startActivity(intent);
     }
 

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".view.FormEditaTemporadaActivity">
+    tools:context=".view.temporada.FormEditaTemporadaActivity">
 
     <TextView
         android:layout_width="wrap_content"

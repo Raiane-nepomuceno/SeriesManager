@@ -1,4 +1,4 @@
-package com.example.seriesmanager.view;
+package com.example.seriesmanager.view.adapter;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -7,13 +7,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.model.Serie;
+import com.example.seriesmanager.view.serie.FormEditaActivity;
+import com.example.seriesmanager.view.serie.RemocaoActivity;
+import com.example.seriesmanager.view.temporada.TemporadaActivity;
+
 import java.util.List;
 
 public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.ListaSeriesViewHolder> {
@@ -57,7 +60,7 @@ public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.
             @Override
             public void onClick(View view) {
                 int clickPosition = (int) view.getTag();
-                Intent intent = new Intent(view.getContext(),TemporadaActivity.class);
+                Intent intent = new Intent(view.getContext(), TemporadaActivity.class);
                 intent.putExtra("serieClicada",series.get(clickPosition).getNome());
                 view.getContext().startActivity(intent);
 
@@ -68,7 +71,7 @@ public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.
             @Override
             public void onClick(View view) {
                 int clickPosition = (int) view.getTag();
-                Intent intent = new Intent(view.getContext(),RemocaoActivity.class);
+                Intent intent = new Intent(view.getContext(), RemocaoActivity.class);
                 intent.putExtra("serieClicada",series.get(clickPosition).getNome());
                 view.getContext().startActivity(intent);
 
@@ -79,7 +82,7 @@ public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.
             @Override
             public void onClick(View view) {
                 int clickPosition = (int) view.getTag();
-                Intent intent = new Intent(view.getContext(),FormEditaActivity.class);
+                Intent intent = new Intent(view.getContext(), FormEditaActivity.class);
                 intent.putExtra("serieClicada",series.get(clickPosition).getNome());
                 view.getContext().startActivity(intent);
 

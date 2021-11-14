@@ -1,4 +1,4 @@
-package com.example.seriesmanager.view;
+package com.example.seriesmanager.view.episodio;
 
 import android.os.Bundle;
 

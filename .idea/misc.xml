@@ -19,6 +19,8 @@
         <entry key="app/src/main/res/layout/activity_temporada.xml" value="0.15151515151515152" />
         <entry key="app/src/main/res/layout/confirmacao_deletar_serie.xml" value="0.27395833333333336" />
         <entry key="app/src/main/res/layout/confirmacao_deletar_temporada.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/episodio_activity_main.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/form_add_episodio.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/form_edita_serie.xml" value="0.33" />
         <entry key="app/src/main/res/layout/form_serie.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_serie.xml" value="0.1531791907514451" />

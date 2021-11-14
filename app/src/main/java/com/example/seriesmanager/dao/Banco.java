@@ -18,8 +18,8 @@ public class Banco extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create Table Series(nome TEXT primary key, anoLancamento int,emissora TEXT, genero TEXT)");
-        sqLiteDatabase.execSQL("create table if not exists Temporadas(numeroSequencialTemp int primary key, anoLancamento int,quantidadeEpisodios int,nomeSerie TEXT, foreign key (nomeSerie) references Series(nome))");
+        sqLiteDatabase.execSQL("create Table Series(nome TEXT primary key not null, anoLancamento int,emissora TEXT, genero TEXT)");
+        sqLiteDatabase.execSQL("create Table Temporadas(numeroSequencialTemp int, anoLancamento int,quantidadeEpisodios int,nomeSerie TEXT not null, foreign key (nomeSerie) references Series(nome),primary key(numeroSequencialTemp, nomeSerie))");
         sqLiteDatabase.execSQL("create Table if not exists Episodios(numeroSequencialEp int primary key, nome TEXT,tempoDuracao float, flag boolean,numeroSequencialTemp int, foreign key (numeroSequencialTemp ) references Temporadas(numeroSequencialTemp ))");
     }
 

@@ -10,31 +10,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.FormAddEpisodioActivity"
+            android:name=".view.episodio.FormAddEpisodioActivity"
             android:exported="true" />
         <activity
-            android:name=".view.TemporadaActivity"
+            android:name=".view.temporada.TemporadaActivity"
             android:exported="true" />
         <activity
-            android:name=".view.FormEditaTemporadaActivity"
+            android:name=".view.temporada.FormEditaTemporadaActivity"
             android:exported="true" />
         <activity
-            android:name=".view.FormTemporadaActivity"
+            android:name=".view.temporada.FormTemporadaActivity"
             android:exported="true" />
         <activity
-            android:name=".view.RemocaoActivity"
+            android:name=".view.serie.RemocaoActivity"
             android:exported="true" />
         <activity
-            android:name=".view.RemocaoTemporadaActivity"
+            android:name=".view.serie.RemocaoTemporadaActivity"
             android:exported="true" />
         <activity
-            android:name=".view.FormAddSerieActivity"
+            android:name=".view.serie.FormAddSerieActivity"
             android:exported="true" />
         <activity
-            android:name=".view.FormEditaActivity"
+            android:name=".view.serie.FormEditaActivity"
             android:exported="true" />
         <activity
-            android:name=".view.SerieActivity"
+            android:name=".view.serie.SerieActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

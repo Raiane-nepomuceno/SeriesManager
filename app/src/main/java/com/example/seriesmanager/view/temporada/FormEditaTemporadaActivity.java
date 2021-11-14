@@ -1,4 +1,4 @@
-package com.example.seriesmanager.view;
+package com.example.seriesmanager.view.temporada;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.dao.Banco;
-import com.example.seriesmanager.model.Serie;
 import com.example.seriesmanager.model.Temporada;
 
 public class FormEditaTemporadaActivity extends AppCompatActivity {
@@ -57,7 +56,7 @@ public class FormEditaTemporadaActivity extends AppCompatActivity {
 
             if (resultado == true) {
                 Toast.makeText(FormEditaTemporadaActivity.this, "Temporada editada com sucesso! :)", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(view.getContext(),TemporadaActivity.class);
+                Intent intent = new Intent(view.getContext(), TemporadaActivity.class);
                 intent.putExtra("temporadaClicada",temporada.getNumeroSequencial());
                 intent.putExtra("serieClicada",nomeEt.getText().toString());
                 view.getContext().startActivity(intent);

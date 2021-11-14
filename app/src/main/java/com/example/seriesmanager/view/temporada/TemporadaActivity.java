@@ -1,4 +1,4 @@
-package com.example.seriesmanager.view;
+package com.example.seriesmanager.view.temporada;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +14,9 @@ import android.widget.TextView;
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.model.Temporada;
+import com.example.seriesmanager.view.adapter.ListaSeriesAdapter;
+import com.example.seriesmanager.view.adapter.ListaTemporadasAdapter;
+import com.example.seriesmanager.view.serie.RemocaoTemporadaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,15 +45,15 @@ public class TemporadaActivity extends AppCompatActivity {
 
     }
     public void adicionarTemporada(View view){
-        Intent intent = new Intent(this,FormTemporadaActivity.class);
+        Intent intent = new Intent(this, FormTemporadaActivity.class);
         startActivity(intent);
     }
     public void removerTemporada(View view){
-        Intent intent = new Intent(this,RemocaoTemporadaActivity.class);
+        Intent intent = new Intent(this, RemocaoTemporadaActivity.class);
         startActivity(intent);
     }
     public void editarTemporada(View view){
-        Intent intent = new Intent(this,FormEditaTemporadaActivity.class);
+        Intent intent = new Intent(this, FormEditaTemporadaActivity.class);
         startActivity(intent);
 
     }

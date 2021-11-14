@@ -1,4 +1,4 @@
-package com.example.seriesmanager.view;
+package com.example.seriesmanager.view.serie;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.model.Serie;
+import com.example.seriesmanager.view.adapter.ListaSeriesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

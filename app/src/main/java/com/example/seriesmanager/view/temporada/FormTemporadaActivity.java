@@ -1,4 +1,4 @@
-package com.example.seriesmanager.view;
+package com.example.seriesmanager.view.temporada;
 
 
 import android.content.Intent;
@@ -72,7 +72,7 @@ public class FormTemporadaActivity extends AppCompatActivity {
 
                 if (resultado == true) {
                     Toast.makeText(FormTemporadaActivity.this, "Temporada adicionada com sucesso! :)", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(view.getContext(),TemporadaActivity.class);
+                    Intent intent = new Intent(view.getContext(), TemporadaActivity.class);
                     intent.putExtra("temporadaClicada",temporada.getNumeroSequencial());
                     intent.putExtra("serieClicada",nomeSerie.getText().toString());
                     view.getContext().startActivity(intent);

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".view.RemocaoActivity">
+    tools:context=".view.serie.RemocaoActivity">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
