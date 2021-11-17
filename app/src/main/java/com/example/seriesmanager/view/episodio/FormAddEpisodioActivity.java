@@ -76,7 +76,7 @@ public class FormAddEpisodioActivity extends AppCompatActivity {
 
                 if (resultado == true) {
                     Toast.makeText(FormAddEpisodioActivity.this, "Episódio adicionada com sucesso! :)", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(view.getContext(), EpisodioActivity.class);
+                    Intent intent = new Intent(view.getContext(), TemporadaActivity.class);
                     intent.putExtra("temporadaClicada", numTemp.getText().toString());
                     intent.putExtra("serieClicada", nomeSerieEt.getText().toString());
                     startActivity(intent);
