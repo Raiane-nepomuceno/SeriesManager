@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-anydpi/ic_save.xml" value="0.11822916666666666" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_add_episodio_24.xml" value="0.2234375" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_listarepisodio_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2078125" />
@@ -13,16 +14,19 @@
         <entry key="app/src/main/res/drawable/ic_baseline_listarepisodio_24.xml" value="0.2890625" />
         <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/activity_edita_temporada.xml" value="0.1358695652173913" />
-        <entry key="app/src/main/res/layout/activity_episodio.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_episodio.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_form_add_episodio.xml" value="0.11639492753623189" />
         <entry key="app/src/main/res/layout/activity_form_temporada.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_temporada.xml" value="0.15151515151515152" />
+        <entry key="app/src/main/res/layout/activity_temporada.xml" value="0.23410404624277456" />
+        <entry key="app/src/main/res/layout/confirmacao_deletar_episodio.xml" value="0.1" />
         <entry key="app/src/main/res/layout/confirmacao_deletar_serie.xml" value="0.27395833333333336" />
         <entry key="app/src/main/res/layout/confirmacao_deletar_temporada.xml" value="0.18" />
         <entry key="app/src/main/res/layout/episodio_activity_main.xml" value="0.1984375" />
-        <entry key="app/src/main/res/layout/form_add_episodio.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/form_add_episodio.xml" value="0.1" />
         <entry key="app/src/main/res/layout/form_edita_serie.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/form_serie.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/form_editar_episodio.xml" value="0.23042505592841164" />
+        <entry key="app/src/main/res/layout/form_serie.xml" value="0.12" />
         <entry key="app/src/main/res/layout/item_serie.xml" value="0.1531791907514451" />
         <entry key="app/src/main/res/layout/serie_activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/temporada_activity.xml" value="0.3541666666666667" />

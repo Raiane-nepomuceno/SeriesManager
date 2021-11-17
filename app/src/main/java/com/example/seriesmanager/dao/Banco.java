@@ -19,8 +19,16 @@ public class Banco extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create Table Series(nome TEXT primary key not null, anoLancamento int,emissora TEXT, genero TEXT)");
-        sqLiteDatabase.execSQL("create Table Temporadas(numeroSequencialTemp int, anoLancamento int,quantidadeEpisodios int,nomeSerie TEXT not null, foreign key (nomeSerie) references Series(nome),primary key(numeroSequencialTemp, nomeSerie))");
-        sqLiteDatabase.execSQL("create Table if not exists Episodios(numeroSequencialEp int primary key, nome TEXT,tempoDuracao float, flag boolean,numeroSequencialTemp int, foreign key (numeroSequencialTemp ) references Temporadas(numeroSequencialTemp ))");
+        sqLiteDatabase.execSQL("create Table Temporadas(numeroSequencialTemp int, anoLancamento int,quantidadeEpisodios int," +
+                "nomeSerie TEXT not null, " +
+                "foreign key (nomeSerie) references Series(nome)," +
+                "primary key(numeroSequencialTemp, nomeSerie))");
+
+        sqLiteDatabase.execSQL("create Table if not exists Episodios(numeroSequencialEp int not null,numeroSequencialTemp int not null, " +
+                "nome TEXT not null, nomeSerie TEXT not null, tempoDuracao int,flag boolean," +
+                "foreign key (nomeSerie) references Temporadas(nomeSerie)," +
+                "foreign key(numeroSequencialTemp) references Temporadas(numeroSequencialTemp)," +
+                "primary key(numeroSequencialEp,numeroSequencialTemp,nomeSerie))");
     }
 
     @Override
@@ -68,6 +76,27 @@ public class Banco extends SQLiteOpenHelper {
             }
         } else {
             return false;
+        }
+    }
+    public Boolean insertEpisodio(Episodio episodio,String nomeSerie){
+        /*        sqLiteDatabase.execSQL("create Table if not exists Episodios(numeroSequencialEp int not null,numeroSequencialTemp int not null, " +
+                "nome TEXT not null,nomeSerie TEXT not null, tempoDuracao int,flag boolean," +
+*/
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("numeroSequencialEp",episodio.getNumeroSequencial());
+        contentValues.put("numeroSequencialTemp",episodio.getNumeroSequencialTemp());
+        contentValues.put("nome", episodio.getNome());
+        contentValues.put("nomeSerie",nomeSerie);
+        contentValues.put("tempoDuracao",episodio.getTempoDuracao());
+        contentValues.put("flag",episodio.getFlag());
+
+        long result = DB.insert("Episodios",null,contentValues);
+        if(result == -1)
+        {
+            return false;
+        }else{
+            return true;
         }
     }
 
@@ -145,6 +174,26 @@ public class Banco extends SQLiteOpenHelper {
         }
 
     }
+    public Boolean deleteEpisodios(String numTemp, String nomeSerie, String numeroSequencialEp)
+    {
+        //"primary key(numeroSequencialEp,numeroSequencialTemp,nomeSerie))");
+
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from Episodios where numeroSequencialTemp= ? and nomeSerie=? and numeroSequencialEp = ? ",new String[]{numTemp,nomeSerie,numeroSequencialEp});
+        if(cursor.getCount() > 0)
+        {
+            long result = DB.delete("Episodios","numeroSequencialTemp=? and nomeSerie=? and numeroSequencialEp = ?",new String[]{numTemp,nomeSerie,numeroSequencialEp});
+            if(result == -1)
+            {
+                return false;
+            }else{
+                return true;
+            }
+        }else{
+            return false;
+        }
+
+    }
     public Cursor getSeries()
     {
         SQLiteDatabase DB = this.getReadableDatabase();
@@ -153,11 +202,11 @@ public class Banco extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor getEpisodios()
+    public Cursor getEpisodios(String nomeSerie, String numTemp)
     {
         SQLiteDatabase DB = this.getWritableDatabase();
 
-        Cursor cursor = DB.rawQuery("Select * from Episodios",null);
+        Cursor cursor = DB.rawQuery("Select * from Episodios  where nomeSerie = ? and numeroSequencialEp = ?",new String[]{nomeSerie,numTemp});
         return cursor;
     }
 

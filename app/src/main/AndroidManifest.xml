@@ -12,8 +12,15 @@
         <activity
             android:name=".view.episodio.FormAddEpisodioActivity"
             android:exported="true" />
+        <activity android:name=".view.episodio.RemocaoEpisodioActivity"
+            android:exported="true" />
+        <activity android:name=".view.episodio.EditarEpisodioActivity"
+            android:exported="true" />
         <activity
             android:name=".view.temporada.TemporadaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.episodio.EpisodioActivity"
             android:exported="true" />
         <activity
             android:name=".view.temporada.FormEditaTemporadaActivity"
@@ -25,7 +32,7 @@
             android:name=".view.serie.RemocaoActivity"
             android:exported="true" />
         <activity
-            android:name=".view.serie.RemocaoTemporadaActivity"
+            android:name=".view.temporada.RemocaoTemporadaActivity"
             android:exported="true" />
         <activity
             android:name=".view.serie.FormAddSerieActivity"

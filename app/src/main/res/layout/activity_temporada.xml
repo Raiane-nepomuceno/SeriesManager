@@ -12,7 +12,7 @@
     tools:context=".view.temporada.TemporadaActivity">
 
     <RelativeLayout
-        android:id="@+id/image_poster_serie"
+        android:id="@+id/image_poster_temporada"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -85,7 +85,7 @@
             android:textColor="@android:color/black" />
 
         <ImageView
-            android:id="@+id/btnAddTemp"
+            android:id="@+id/btnAddEp"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_below="@+id/text_quant_episodios"
@@ -117,7 +117,7 @@
             android:onClick="removerTemporada"
             android:src="@drawable/ic_remove" />
 
-       
+
     </RelativeLayout>
 
 

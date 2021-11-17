@@ -1,4 +1,4 @@
-package com.example.seriesmanager.view.serie;
+package com.example.seriesmanager.view.temporada;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.dao.Banco;
-import com.example.seriesmanager.view.temporada.TemporadaActivity;
 
 public class RemocaoTemporadaActivity extends AppCompatActivity {
     private Banco db;

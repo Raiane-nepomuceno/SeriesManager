@@ -4,15 +4,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.seriesmanager.R;
+import com.example.seriesmanager.model.Episodio;
 import com.example.seriesmanager.model.Temporada;
+import com.example.seriesmanager.view.episodio.EpisodioActivity;
+import com.example.seriesmanager.view.episodio.FormAddEpisodioActivity;
+import com.example.seriesmanager.view.serie.SerieActivity;
 import com.example.seriesmanager.view.temporada.FormEditaTemporadaActivity;
-import com.example.seriesmanager.view.serie.RemocaoTemporadaActivity;
+import com.example.seriesmanager.view.temporada.RemocaoTemporadaActivity;
+import com.example.seriesmanager.view.temporada.TemporadaActivity;
 
 import java.util.List;
 
@@ -69,6 +75,31 @@ public class ListaTemporadasAdapter extends RecyclerView.Adapter<ListaTemporadas
 
             }
         });
+        holder.btnAddEp.setTag(position);
+        holder.btnAddEp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int clickPosition = (int) view.getTag();
+                Intent intent = new Intent(view.getContext(), FormAddEpisodioActivity.class);
+                intent.putExtra("temporadaClicada",temporadas.get(clickPosition).getNumeroSequencial());
+                intent.putExtra("serieClicada",temporadas.get(clickPosition).getNomeSerie());
+                view.getContext().startActivity(intent);
+
+            }
+        });
+        holder.imagePosterEpisodio.setTag(position);
+        holder.imagePosterEpisodio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int clickPosition = (int) view.getTag();
+                Intent intent = new Intent(view.getContext(), EpisodioActivity.class);
+                intent.putExtra("temporadaClicada",temporadas.get(clickPosition).getNumeroSequencial());
+                intent.putExtra("serieClicada",temporadas.get(clickPosition).getNomeSerie());
+                view.getContext().startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override
@@ -79,7 +110,9 @@ public class ListaTemporadasAdapter extends RecyclerView.Adapter<ListaTemporadas
     static class ListaTemporadasViewHolder extends RecyclerView.ViewHolder {
         private TextView texQuantEpisodio,textAnoTemporada,textNumSeq,numSeq,quant_episodio,text_anoT;
         private Temporada temporada;
-        private ImageView imagePosterSerie,image_delete,image_edita;
+        private ImageView imagePosterSerie,image_delete,image_edita,btnAddEp;
+        private RelativeLayout imagePosterEpisodio;
+
 
         public ListaTemporadasViewHolder(View itemView) {
             super(itemView);
@@ -94,6 +127,10 @@ public class ListaTemporadasAdapter extends RecyclerView.Adapter<ListaTemporadas
 
             image_delete = itemView.findViewById(R.id.image_delete);
             image_edita = itemView.findViewById(R.id.image_edita);
+
+            imagePosterEpisodio = itemView.findViewById(R.id.image_poster_temporada);
+
+            btnAddEp = itemView.findViewById(R.id.btnAddEp);
         }
         public void bind(Temporada temporada){
             this.temporada = temporada;

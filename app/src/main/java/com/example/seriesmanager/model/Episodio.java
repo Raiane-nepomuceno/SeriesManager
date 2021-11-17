@@ -9,16 +9,19 @@ public class Episodio {
 
     private int numeroSequencial;
     private String nome;
-    private double tempoDuracao; //em minutos
+    private int tempoDuracao; //em minutos
     private boolean flag; //flag de Assistido
     private int numeroSequencialTemp;
 
-    public Episodio(int numeroSequencial, String nome, double tempoDuracao, boolean flag, int numeroSequencialTemp) {
+    public Episodio(int numeroSequencial, String nome, int tempoDuracao, boolean flag, int numeroSequencialTemp) {
         this.numeroSequencial = numeroSequencial;
         this.nome = nome;
         this.tempoDuracao = tempoDuracao;
         this.flag = flag;
         this.numeroSequencialTemp = numeroSequencialTemp;
+    }
+
+    public Episodio() {
     }
 
     public int getNumeroSequencialTemp() {
@@ -29,7 +32,7 @@ public class Episodio {
         this.numeroSequencialTemp = numeroSequencialTemp;
     }
 
-    public boolean isFlag() {
+    public boolean getFlag() {
         return flag;
     }
 
@@ -53,11 +56,12 @@ public class Episodio {
         this.nome = nome;
     }
 
-    public double getTempoDuracao() {
+    public int getTempoDuracao() {
         return tempoDuracao;
     }
 
-    public void setTempoDuracao(double tempoDuracao) {
+    public void setTempoDuracao(int tempoDuracao) {
         this.tempoDuracao = tempoDuracao;
     }
+
 }

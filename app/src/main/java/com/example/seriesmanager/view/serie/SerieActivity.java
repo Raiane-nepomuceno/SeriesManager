@@ -23,7 +23,7 @@ import com.example.seriesmanager.view.temporada.FormTemporadaActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SerieActivity extends AppCompatActivity implements ListaSeriesAdapter.ItemSerieClickListener{
+public class SerieActivity extends AppCompatActivity implements ListaSeriesAdapter.ItemSerieClickListener {
     private Banco db;
     private ListaSeriesAdapter mAdapter;
     private TextView textTituloSerie;
@@ -45,23 +45,22 @@ public class SerieActivity extends AppCompatActivity implements ListaSeriesAdapt
         recyclerSeries.setAdapter(new ListaSeriesAdapter(criarSeries()));
     }
 
-    public void openFormEdita()
-    {
+    public void openFormEdita() {
         Intent intent = new Intent(this, FormEditaActivity.class);
         startActivity(intent);
 
     }
-    public void openAddSerie(){
+
+    public void openAddSerie() {
         Intent intent = new Intent(this, FormAddSerieActivity.class);
         startActivity(intent);
     }
 
-    private List<Serie> criarSeries(){
+    private List<Serie> criarSeries() {
         db = new Banco(this);
 
         Cursor cursor = db.getSeries();
-        while(cursor.moveToNext())
-        {
+        while (cursor.moveToNext()) {
             Serie serie = new Serie();
             serie.setNome(cursor.getString(cursor.getColumnIndex("nome")));
             serie.setEmissora(cursor.getString(cursor.getColumnIndex("emissora")));
@@ -72,15 +71,18 @@ public class SerieActivity extends AppCompatActivity implements ListaSeriesAdapt
         db.close();
         return listaSeries;
     }
-    public void adicionarTemporada(View view){
+
+    public void adicionarTemporada(View view) {
         Intent intent = new Intent(this, FormTemporadaActivity.class);
         startActivity(intent);
 
     }
-    public void adicionarSerie(View view){
+
+    public void adicionarSerie(View view) {
         openAddSerie();
         criarSeries();
     }
+
     public void editarSerie(View view) {
         openFormEdita();
     }
@@ -93,9 +95,6 @@ public class SerieActivity extends AppCompatActivity implements ListaSeriesAdapt
 
     @Override
     public void onItemClicado(Serie serie) {
-        Intent intent = new Intent(this, EpisodioActivity.class);
-        intent.putExtra(EpisodioActivity.EXTRA_SERIE,serie);
-        startActivity(intent);
 
     }
 }

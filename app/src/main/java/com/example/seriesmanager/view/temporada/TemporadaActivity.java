@@ -16,15 +16,13 @@ import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.model.Temporada;
 import com.example.seriesmanager.view.adapter.ListaSeriesAdapter;
 import com.example.seriesmanager.view.adapter.ListaTemporadasAdapter;
-import com.example.seriesmanager.view.serie.RemocaoTemporadaActivity;
+import com.example.seriesmanager.view.temporada.RemocaoTemporadaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TemporadaActivity extends AppCompatActivity {
     private Banco db;
-    private ListaSeriesAdapter mAdapter;
-    private TextView textTituloSerie;
     public ImageView mDeleteImage;
     private List<Temporada> listaTemporadas;
 
@@ -68,12 +66,12 @@ public class TemporadaActivity extends AppCompatActivity {
                 temporada.setQuantidadeEpisodios(cursor.getInt(cursor.getColumnIndex("quantidadeEpisodios")));
                 temporada.setNumeroSequencial(cursor.getInt(cursor.getColumnIndex("numeroSequencialTemp")));
                 temporada.setAnoLancamento(cursor.getInt(cursor.getColumnIndex("anoLancamento")));
-                temporada.setNomeSerie(serieClicada);
+                temporada.setNomeSerie(cursor.getString(cursor.getColumnIndex("nomeSerie")));
                 listaTemporadas.add(temporada);
             }
         }
-            db.close();
-            return listaTemporadas;
+        db.close();
+        return listaTemporadas;
 
     }
 }
