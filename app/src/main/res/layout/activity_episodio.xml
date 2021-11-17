@@ -86,26 +86,15 @@
             android:layout_marginLeft="230dp"
             android:text="Assistido" />
 
-        <ImageView
-            android:id="@+id/image_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@+id/tempo_duracao_ep"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="30dp"
-            android:onClick="editar"
-            android:padding="30dp"
-            android:src="@drawable/ic_edit" />
 
         <ImageView
             android:id="@+id/image_delete"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tempo_duracao_ep"
-            android:layout_marginLeft="8dp"
+            android:layout_below="@+id/text_duracao"
+            android:layout_marginLeft="160dp"
             android:layout_marginTop="60dp"
-            android:onClick="removerEpisodio"
-            android:src="@drawable/ic_remove" />
+            app:srcCompat="@drawable/ic_remove" />
 
 
     </RelativeLayout>

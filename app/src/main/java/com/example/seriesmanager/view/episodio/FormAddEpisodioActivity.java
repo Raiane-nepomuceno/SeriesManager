@@ -53,7 +53,7 @@ public class FormAddEpisodioActivity extends AppCompatActivity {
     }
     public void salvarEpisodio(View view){
         db = new Banco(this);
-    //    try {
+      try {
 
 
             Bundle nomeSerie = getIntent().getExtras();
@@ -84,16 +84,16 @@ public class FormAddEpisodioActivity extends AppCompatActivity {
                     db.close();
                 }
                 }
-            }
-        /*}catch (Exception e){
+
+        }catch (Exception e){
             Toast.makeText(FormAddEpisodioActivity.this, "Erro :(", Toast.LENGTH_SHORT).show();
 
-        }*/
+        }
 
-    //}
+    }
     public void limparDadosEpisodio(View view){
         numSeqEpisodioEt.getText().clear();
         nomeEpisodioEt.getText().clear();
         duracaoEpisodioEt.getText().clear();
     }
-}
+    }

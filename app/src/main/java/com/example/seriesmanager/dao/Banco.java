@@ -78,10 +78,8 @@ public class Banco extends SQLiteOpenHelper {
             return false;
         }
     }
+
     public Boolean insertEpisodio(Episodio episodio,String nomeSerie){
-        /*        sqLiteDatabase.execSQL("create Table if not exists Episodios(numeroSequencialEp int not null,numeroSequencialTemp int not null, " +
-                "nome TEXT not null,nomeSerie TEXT not null, tempoDuracao int,flag boolean," +
-*/
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("numeroSequencialEp",episodio.getNumeroSequencial());

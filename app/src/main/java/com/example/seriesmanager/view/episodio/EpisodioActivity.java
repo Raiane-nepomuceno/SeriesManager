@@ -44,10 +44,6 @@ public class EpisodioActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-    public void editar(View view){
-        Intent intent = new Intent(this, EditarEpisodioActivity.class);
-        startActivity(intent);
-    }
     private List<Episodio> carregarEpisodios(){
         Bundle nomeSerie = getIntent().getExtras();
         if(nomeSerie != null){

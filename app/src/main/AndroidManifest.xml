@@ -14,8 +14,6 @@
             android:exported="true" />
         <activity android:name=".view.episodio.RemocaoEpisodioActivity"
             android:exported="true" />
-        <activity android:name=".view.episodio.EditarEpisodioActivity"
-            android:exported="true" />
         <activity
             android:name=".view.temporada.TemporadaActivity"
             android:exported="true" />
