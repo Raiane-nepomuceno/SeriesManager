@@ -204,7 +204,7 @@ public class Banco extends SQLiteOpenHelper {
     {
         SQLiteDatabase DB = this.getWritableDatabase();
 
-        Cursor cursor = DB.rawQuery("Select * from Episodios  where nomeSerie = ? and numeroSequencialEp = ?",new String[]{nomeSerie,numTemp});
+        Cursor cursor = DB.rawQuery("Select * from Episodios  where nomeSerie = ? and numeroSequencialTemp = ?",new String[]{nomeSerie,numTemp});
         return cursor;
     }
 

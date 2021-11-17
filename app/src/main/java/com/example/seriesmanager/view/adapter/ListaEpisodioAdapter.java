@@ -87,7 +87,6 @@ public class ListaEpisodioAdapter extends RecyclerView.Adapter<ListaEpisodioAdap
         public void bind(Episodio episodio) {
             this.episodio = episodio;
             num_seq_ep.setText(String.valueOf(episodio.getNumeroSequencial()));
-
         }
     }
 }

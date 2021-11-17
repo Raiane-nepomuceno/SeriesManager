@@ -58,17 +58,12 @@ public class EpisodioActivity extends AppCompatActivity {
             while(cursor.moveToNext()) {
                 Episodio episodio = new Episodio();
                 episodio.setTempoDuracao(cursor.getInt(cursor.getColumnIndex("tempoDuracao")));
-                int flag = cursor.getInt(cursor.getColumnIndex("flag"));
-                if(flag == 0)
-                {
-                    episodio.setFlag(false);
-                }
-                else{
-                    episodio.setFlag(true);
-                }
+                //int flag = cursor.getInt(cursor.getColumnIndex("flag"));
+                episodio.setFlag(false);
                 episodio.setNumeroSequencial(cursor.getInt(cursor.getColumnIndex("numeroSequencialEp")));
                 episodio.setNumeroSequencialTemp(cursor.getInt(cursor.getColumnIndex("numeroSequencialTemp")));
-                episodio.setNome(cursor.getString(cursor.getColumnIndex("nomeSerie")));
+                episodio.setNome(cursor.getString(cursor.getColumnIndex("nome")));
+
                 listaEpisodios.add(episodio);
 
             }
