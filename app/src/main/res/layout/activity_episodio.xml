@@ -104,7 +104,6 @@
             android:layout_below="@+id/tempo_duracao_ep"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="60dp"
-            android:layout_toRightOf="@+id/image_save"
             android:onClick="removerEpisodio"
             android:src="@drawable/ic_remove" />
 
