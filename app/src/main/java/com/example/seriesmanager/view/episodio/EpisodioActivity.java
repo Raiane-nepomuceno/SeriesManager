@@ -63,7 +63,7 @@ public class EpisodioActivity extends AppCompatActivity {
                 episodio.setNumeroSequencial(cursor.getInt(cursor.getColumnIndex("numeroSequencialEp")));
                 episodio.setNumeroSequencialTemp(cursor.getInt(cursor.getColumnIndex("numeroSequencialTemp")));
                 episodio.setNome(cursor.getString(cursor.getColumnIndex("nome")));
-
+                episodio.setNomeSerie(cursor.getString(cursor.getColumnIndex("nomeSerie")));
                 listaEpisodios.add(episodio);
 
             }

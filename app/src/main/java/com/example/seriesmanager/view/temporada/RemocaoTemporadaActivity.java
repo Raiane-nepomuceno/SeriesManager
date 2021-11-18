@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.dao.Banco;
+import com.example.seriesmanager.view.serie.SerieActivity;
 
 public class RemocaoTemporadaActivity extends AppCompatActivity {
     private Banco db;
@@ -45,7 +46,7 @@ public class RemocaoTemporadaActivity extends AppCompatActivity {
                 {
                     Toast.makeText(RemocaoTemporadaActivity.this, "Temporada excluída com sucesso! :)", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(view.getContext(), TemporadaActivity.class);
+                    Intent intent = new Intent(view.getContext(), SerieActivity.class);
                     intent.putExtra("temporadaClicada",numTempEt.getText().toString());
                     intent.putExtra("serieClicada",nomeSerieEt.getText().toString());
                     startActivity(intent);

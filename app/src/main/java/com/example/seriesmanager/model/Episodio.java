@@ -8,14 +8,15 @@ public class Episodio {
 
 
     private int numeroSequencial;
-    private String nome;
+    private String nome, nomeSerie;
     private int tempoDuracao; //em minutos
     private boolean flag; //flag de Assistido
     private int numeroSequencialTemp;
 
-    public Episodio(int numeroSequencial, String nome, int tempoDuracao, boolean flag, int numeroSequencialTemp) {
+    public Episodio(int numeroSequencial, String nome, String nomeSerie, int tempoDuracao, boolean flag, int numeroSequencialTemp) {
         this.numeroSequencial = numeroSequencial;
         this.nome = nome;
+        this.nomeSerie = nomeSerie;
         this.tempoDuracao = tempoDuracao;
         this.flag = flag;
         this.numeroSequencialTemp = numeroSequencialTemp;
@@ -64,4 +65,15 @@ public class Episodio {
         this.tempoDuracao = tempoDuracao;
     }
 
+    public String getNomeSerie() {
+        return nomeSerie;
+    }
+
+    public void setNomeSerie(String nomeSerie) {
+        this.nomeSerie = nomeSerie;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
 }

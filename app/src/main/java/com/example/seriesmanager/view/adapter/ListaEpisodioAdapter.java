@@ -53,8 +53,8 @@ public class ListaEpisodioAdapter extends RecyclerView.Adapter<ListaEpisodioAdap
                 //enviando os dados para a tela de remocao de temporada
                 Intent intent = new Intent(view.getContext(), RemocaoEpisodioActivity.class);
                 intent.putExtra("temporadaClicada",episodios.get(clickPosition).getNumeroSequencialTemp());
-                intent.putExtra("serieClicada",episodios.get(clickPosition).getNome());
-                intent.putExtra("episodioClicado",episodios.get(clickPosition).getNumeroSequencialTemp());
+                intent.putExtra("serieClicada",episodios.get(clickPosition).getNomeSerie());
+                intent.putExtra("episodioClicado",episodios.get(clickPosition).getNumeroSequencial());
                 view.getContext().startActivity(intent);
             }
         });
