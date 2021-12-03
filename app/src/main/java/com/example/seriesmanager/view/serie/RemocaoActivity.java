@@ -7,16 +7,20 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.seriesmanager.R;
-import com.example.seriesmanager.dao.Banco;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class RemocaoActivity extends AppCompatActivity {
-    private Banco db;
     private EditText nomeSerieEt;
-
-
+    private DatabaseReference referencia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,24 +36,28 @@ public class RemocaoActivity extends AppCompatActivity {
 
     }
             public void removerSerie(View view) {
+                referencia = FirebaseDatabase.getInstance().getReference();
+                Query query = referencia.child("series").orderByChild("nome").equalTo(nomeSerieEt.getText().toString());
 
-                db = new Banco(this);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
-                Boolean resultado = db.deleteSeries(nomeSerieEt.getText().toString());
-                if(resultado == true)
-                {
-                    Toast.makeText(RemocaoActivity.this, "Série excluída com sucesso! :)", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, SerieActivity.class);
-                    startActivity(intent);
+                            dataSnapshot.getRef().removeValue();
+                            Toast.makeText(RemocaoActivity.this, "Série excluída com sucesso! :)", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(view.getContext(), SerieActivity.class);
+                            startActivity(intent);
 
+                        }
+                    }
 
-                }
-                else{
-                    Toast.makeText(RemocaoActivity.this, "Por favor informe o nome válido de série. Tente novamente!", Toast.LENGTH_LONG).show();
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        System.out.println("Erro na leitura: "+error.getCode());
 
-                }
-                db.close();
-
+                    }
+                });
 
             }
-        }
+}

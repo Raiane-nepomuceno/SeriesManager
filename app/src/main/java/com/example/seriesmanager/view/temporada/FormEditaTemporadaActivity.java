@@ -11,13 +11,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.seriesmanager.R;
-import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.model.Temporada;
 
 public class FormEditaTemporadaActivity extends AppCompatActivity {
     private EditText lancamentoEt,quantidadeEpisodiosTempEt;
     private TextView numeroTempEt,nomeEt,text_anoT;
-    private Banco db;
     private Button btnLimpar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,7 @@ public class FormEditaTemporadaActivity extends AppCompatActivity {
 
     }
     public void editarTemporada(View view){
-        db = new Banco(this);
+        /*db = new Banco(this);
         try {
 
             Temporada temporada = new Temporada();
@@ -76,6 +74,6 @@ public class FormEditaTemporadaActivity extends AppCompatActivity {
             quantidadeEpisodiosTempEt.getText().clear();
             quantidadeEpisodiosTempEt.getText().clear();
 
-        }
+        }*/
     }
 }

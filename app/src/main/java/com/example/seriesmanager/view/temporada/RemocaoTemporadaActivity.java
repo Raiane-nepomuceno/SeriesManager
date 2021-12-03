@@ -7,16 +7,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.seriesmanager.R;
-import com.example.seriesmanager.dao.Banco;
+import com.example.seriesmanager.view.serie.RemocaoActivity;
 import com.example.seriesmanager.view.serie.SerieActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class RemocaoTemporadaActivity extends AppCompatActivity {
-    private Banco db;
     private EditText numTempEt,nomeSerieEt;
     private Button btnRemoverTemp;
+    private DatabaseReference referencia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,24 +45,33 @@ public class RemocaoTemporadaActivity extends AppCompatActivity {
 
     }
             public void removerTemporada(View view) {
+                referencia = FirebaseDatabase.getInstance().getReference();
+                referencia.child("temporadas").child(numTempEt.getText().toString()).child(nomeSerieEt.getText().toString());
+                //Query query = referencia.child(numTempEt.getText().toString()).child(nomeSerieEt.getText().toString());
+                referencia.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            dataSnapshot.getRef().removeValue();
+                            Toast.makeText(RemocaoTemporadaActivity.this, "entrei na função ondaDatChange", Toast.LENGTH_LONG).show();
+                            System.out.println("dataSnapshot"+dataSnapshot.getValue());
+                            Toast.makeText(RemocaoTemporadaActivity.this, "Temporada excluída com sucesso! :)", Toast.LENGTH_SHORT).show();
 
-                db = new Banco(this);
+                            Intent intent = new Intent(view.getContext(), SerieActivity.class);
+                            intent.putExtra("temporadaClicada",numTempEt.getText().toString());
+                            intent.putExtra("serieClicada",nomeSerieEt.getText().toString());
+                            startActivity(intent);
 
-                Boolean resultado = db.deleteTemporadas(numTempEt.getText().toString(),nomeSerieEt.getText().toString());
-                if(resultado == true)
-                {
-                    Toast.makeText(RemocaoTemporadaActivity.this, "Temporada excluída com sucesso! :)", Toast.LENGTH_SHORT).show();
+                        }
+                    }
 
-                    Intent intent = new Intent(view.getContext(), SerieActivity.class);
-                    intent.putExtra("temporadaClicada",numTempEt.getText().toString());
-                    intent.putExtra("serieClicada",nomeSerieEt.getText().toString());
-                    startActivity(intent);
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        System.out.println("Erro na leitura: "+error.getCode());
+                        Toast.makeText(RemocaoTemporadaActivity.this, "Por favor informe o nome válido de série. Tente novamente!", Toast.LENGTH_LONG).show();
 
-                }
-                else{
-                    Toast.makeText(RemocaoTemporadaActivity.this, "Por favor informe o nome válido de série. Tente novamente!", Toast.LENGTH_LONG).show();
+                    }
+                });
 
-                }
-                db.close();
             }
-        }
+}

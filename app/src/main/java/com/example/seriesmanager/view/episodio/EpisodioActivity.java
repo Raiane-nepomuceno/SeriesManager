@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.seriesmanager.R;
-import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.model.Episodio;
 import com.example.seriesmanager.view.adapter.ListaEpisodioAdapter;
+import com.example.seriesmanager.view.adapter.ListaSeriesAdapter;
 import com.example.seriesmanager.view.serie.FormAddSerieActivity;
 import com.example.seriesmanager.view.serie.RemocaoActivity;
 
@@ -23,20 +23,22 @@ import java.util.List;
 
 public class EpisodioActivity extends AppCompatActivity {
     private List<Episodio> listaEpisodios;
-    private Banco db;
+    private ListaSeriesAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.episodio_activity_main);
 
+        setSupportActionBar(findViewById(R.id.toolbar));
+        carregarEpisodios();
         listaEpisodios = new ArrayList<>();
         RecyclerView recyclerEpisodios = findViewById(R.id.recycler_episodios);
 
         RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerEpisodios.setLayoutManager(linearLayoutManager);
 
-       recyclerEpisodios.setAdapter(new ListaEpisodioAdapter(carregarEpisodios()));
+       recyclerEpisodios.setAdapter(mAdapter);
 
     }
     public void removerEpisodio(View view){
@@ -50,7 +52,7 @@ public class EpisodioActivity extends AppCompatActivity {
             String serieClicada = nomeSerie.getString("serieClicada");
             int temporadaClicada = nomeSerie.getInt("temporadaClicada");
 
-            db = new Banco(this);
+            /*db = new Banco(this);
 
             //falta editar aqui
             Cursor cursor = db.getEpisodios(serieClicada,String.valueOf(temporadaClicada));
@@ -68,8 +70,9 @@ public class EpisodioActivity extends AppCompatActivity {
 
             }
         }
-        db.close();
+        db.close();*/
+    }
         return listaEpisodios;
 
-    }
+}
 }

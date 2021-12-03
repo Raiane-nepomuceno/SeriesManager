@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.seriesmanager.R;
-import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.model.Episodio;
 import com.example.seriesmanager.model.Serie;
 import com.example.seriesmanager.model.Temporada;
@@ -24,7 +23,6 @@ import java.util.List;
 
 public class FormAddEpisodioActivity extends AppCompatActivity {
     private EditText numSeqEpisodioEt,nomeEpisodioEt,duracaoEpisodioEt;
-    private Banco db;
     private TextView nomeSerieEt,numTemp;
     private List<Episodio> listaEpisodios;
 
@@ -52,7 +50,7 @@ public class FormAddEpisodioActivity extends AppCompatActivity {
         }
     }
     public void salvarEpisodio(View view){
-        db = new Banco(this);
+        /*db = new Banco(this);
       try {
 
 
@@ -89,7 +87,7 @@ public class FormAddEpisodioActivity extends AppCompatActivity {
             Toast.makeText(FormAddEpisodioActivity.this, "Erro :(", Toast.LENGTH_SHORT).show();
 
         }
-
+*/
     }
     public void limparDadosEpisodio(View view){
         numSeqEpisodioEt.getText().clear();

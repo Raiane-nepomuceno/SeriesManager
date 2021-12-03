@@ -17,6 +17,7 @@ import com.example.seriesmanager.view.serie.FormEditaActivity;
 import com.example.seriesmanager.view.serie.RemocaoActivity;
 import com.example.seriesmanager.view.temporada.TemporadaActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.ListaSeriesViewHolder> {
@@ -26,10 +27,23 @@ public class ListaSeriesAdapter extends RecyclerView.Adapter<ListaSeriesAdapter.
     public ListaSeriesAdapter(List<Serie> series) {
         this.series = series;
     }
-
     public ListaSeriesAdapter(ItemSerieClickListener itemSerieClickListener) {
         this.itemSerieClickListener = itemSerieClickListener;
+    }
+    public List<Serie> getSeries() {
+        return series;
+    }
+
+    public void setSeries(List<Serie> series) {
         this.series = series;
+    }
+
+    public static ItemSerieClickListener getItemSerieClickListener() {
+        return itemSerieClickListener;
+    }
+
+    public static void setItemSerieClickListener(ItemSerieClickListener itemSerieClickListener) {
+        ListaSeriesAdapter.itemSerieClickListener = itemSerieClickListener;
     }
 
 

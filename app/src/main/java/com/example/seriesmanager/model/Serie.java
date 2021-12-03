@@ -54,4 +54,5 @@ public class Serie implements Serializable {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+
 }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.seriesmanager.R;
 import com.example.seriesmanager.model.Episodio;
+import com.example.seriesmanager.model.Serie;
 import com.example.seriesmanager.model.Temporada;
 import com.example.seriesmanager.view.episodio.EpisodioActivity;
 import com.example.seriesmanager.view.episodio.FormAddEpisodioActivity;
@@ -24,14 +25,15 @@ import java.util.List;
 
 public class ListaTemporadasAdapter extends RecyclerView.Adapter<ListaTemporadasAdapter.ListaTemporadasViewHolder> {
     private List<Temporada> temporadas;
+    private static ListaTemporadasAdapter.ItemTemporadaClickListener itemTemporadaClickListener;
 
     public ListaTemporadasAdapter(List<Temporada> temporadas) {
         this.temporadas = temporadas;
     }
 
-    public ListaTemporadasAdapter() {
+    public static ListaTemporadasAdapter.ItemTemporadaClickListener getItemSerieClickListener() {
+        return itemTemporadaClickListener;
     }
-
     @NonNull
     @Override
     public ListaTemporadasAdapter.ListaTemporadasViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -138,4 +140,8 @@ public class ListaTemporadasAdapter extends RecyclerView.Adapter<ListaTemporadas
 
         }
     }
+
+    public interface ItemTemporadaClickListener{
+        void onItemClicado(Temporada temporada);
     }
+}

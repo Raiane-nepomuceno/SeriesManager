@@ -11,9 +11,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.seriesmanager.R;
-import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.model.Serie;
 import com.example.seriesmanager.view.adapter.ListaSeriesAdapter;
+import com.example.seriesmanager.view.temporada.TemporadaActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +23,9 @@ import java.util.List;
 public class FormAddSerieActivity extends AppCompatActivity {
     private EditText nomeSerieEt,lancamentoEt,emissoraEt,generoEt;
     private Button btnLimpar;
-    private Banco db;
     private ListaSeriesAdapter mAdapter;
     private List<Serie> listaSeries;
-
-
+    private DatabaseReference referencia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,11 +59,11 @@ public class FormAddSerieActivity extends AppCompatActivity {
 
     public void salvarSerie(View view){
 
-        db = new Banco(this);
-
+        //db = new Banco();
         if(nomeSerieEt != null &&  emissoraEt!=null && generoEt!=null && lancamentoEt!=null && lancamentoEt!=null)
         {
             try {
+
             Serie serie = new Serie();
             serie.setNome(nomeSerieEt.getText().toString());
             serie.setEmissora(emissoraEt.getText().toString());
@@ -72,33 +72,20 @@ public class FormAddSerieActivity extends AppCompatActivity {
 
             listaSeries.add(serie);
 
-            Boolean resultado = db.insertSerie(serie);
+            referencia = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference series = referencia.child("series");
+            series.child(serie.getNome()).setValue(serie);
 
 
-        if(resultado == true)
-        {
             Toast.makeText(FormAddSerieActivity.this, "Série adicionada com sucesso! :)", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, SerieActivity.class);
             startActivity(intent);
 
-            db.close();
-        }
-        else{
-
-            Toast.makeText(FormAddSerieActivity.this, "Os campos já estão vazios, vamos preencher! :)", Toast.LENGTH_LONG).show();
-            db.close();
-        }
         }catch (Exception e){
                 Toast.makeText(FormAddSerieActivity.this, "Os campos estão inválidos. Por favor preencha novamente!", Toast.LENGTH_LONG).show();
 
             }
-        }else{
-            Toast.makeText(FormAddSerieActivity.this, "Os campos estão inválidos. Por favor preencha novamente!", Toast.LENGTH_LONG).show();
-            db.close();
         }
 
-
-
     }
-
-    }
+}

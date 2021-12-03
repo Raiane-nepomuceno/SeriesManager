@@ -9,15 +9,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.seriesmanager.R;
-import com.example.seriesmanager.dao.Banco;
 import com.example.seriesmanager.view.temporada.FormEditaTemporadaActivity;
 import com.example.seriesmanager.view.temporada.FormTemporadaActivity;
 import com.example.seriesmanager.view.temporada.RemocaoTemporadaActivity;
 import com.example.seriesmanager.view.temporada.TemporadaActivity;
+import com.google.firebase.database.DatabaseReference;
 
 public class RemocaoEpisodioActivity extends AppCompatActivity {
     private TextView numTempEt,nomeSerieEt,numEpisodioEt;
-    private Banco db;
+    private DatabaseReference referencia;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class RemocaoEpisodioActivity extends AppCompatActivity {
     }
     public void removerEpisodio(View view) {
 
-        db = new Banco(this);
+        /*db = new Banco(this);
        Boolean resultado = db.deleteEpisodios(numTempEt.getText().toString(),nomeSerieEt.getText().toString(),numEpisodioEt.getText().toString());
 
         if(resultado == true)
@@ -58,7 +59,7 @@ public class RemocaoEpisodioActivity extends AppCompatActivity {
             Toast.makeText(RemocaoEpisodioActivity.this, "Por favor informe o nome válido de série. Tente novamente!", Toast.LENGTH_LONG).show();
 
         }
-        db.close();
+        db.close();*/
     }
 }
 
